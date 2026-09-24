@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:100px;
+            margin-left: 170px;
+            }
+        .img{
+            height: 130px;
+            width: 130px;
+            border: solid rgb(252, 248, 252);
+            border-style: double;
+            border-radius: 50%;
+            outline: 5px solid purple;
+        }
+        .div1{
+            height: 460px;
+            width: 360px;
+            background-size: cover;
+            border-radius: 4px;
+            box-shadow: 4px 4px 6px;   
+            display: inline-block;
+            margin: 10px;
+            margin-top: 5px;
+            margin-inline-start: 20px 20px;  
+        }
+        .div1:hover{
+            height: inherit;
+            width: 360px;
+            margin: 50px;
+            transition: 0.5s ease-out;
+            margin-top: 25px;
+            margin-inline-start: 20px 20px; 
+            cursor: pointer;
+
+        }
+        p:hover{
+            color: black;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            cursor: copy;
+            
+            
+        }
+        
+        
+        .p2{
+            text-align: center;
+            padding:11px;
+            padding-bottom: 0px;
+            padding-top:px;
+            font-size: larger;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(98, 98, 98);
+        }
+        .button{
+            padding: 10px 22px;
+            border-radius: 3px;
+            background-color: #fafafa;
+            border: #8E45AF solid 2px;
+            font-size: larger;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            cursor:grab;
+        }
+        .button1{
+            padding: 10px 22px;
+            color: white;
+            margin: 0px 10px;
+            border-radius: 3px;
+            background-color: #8E45AF;
+            border: #8E45AF solid 1px;
+            font-size: larger;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            cursor: pointer;
+        }
+        .h1{
+            color: white;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 55px;
+        }
+        .button:hover{
+            background-color:#8E45AF;
+            color: white;
+            transition: inherit;
+        }
+        .button1:hover{
+            background-color:#f5f4f6;
+            transition: inherit;
+            color: #09000e;
+            border: #8E45AF solid 2px;
+            
+        } 
+    </style>
+</head>
+
+<body style="background-color: #8E45AF;">
+
+    <h1 align="center" class="h1">RESPONSIVE PROFILE CARDS</h1>
+    <!--Card-1-->
+    <div class="div1" style="background-color: white;">
+    
+        <span><p align="center"><img class="img" src="../Practice Folder/david.jpg" ></p>
+        <h2 align="center" style="color: #8E45AF;"">David Chris<br>&starf;&starf;&starf;&star;&star;</h2>
+        <p align="center" class="p2">Lorem ipsum dolor sit amet consectetur adipisiciding elit. Perferendis, quas optio? Faceare voluptatum, consequntur assum optio quo, labore necessitatibus obcacati aut enim, harum beatae.</p></span>
+        <p align="center"><button type="button" class="button">Read more</button>
+        <button type="button" class="button1">Subscribe</button></p>
+    </div>
+    
+
+    <!--Card-2-->
+    <div class="div1" style="background-color: white;">
+    
+        <p align="center"><img class="img" src="../Practice Folder/images.jpg" ></p>
+        <h2 align="center" style="color: #8E45AF;">Krishtina Bells<br>&starf;&starf;&starf;&starf;&star;</h2>
+        <p align="center" class="p2">Lorem ipsum dolor sit amet consectetur adipisiciding elit. Perferendis, quas optio? Faceare voluptatum, consequntur assum optio quo, labore necessitatibus obcacati aut enim, harum beatae. </p>
+        <p align="center"><button type="button" class="button">Read more</button>
+        <button type="button" class="button1">Subscribe</button></p>
+    </div>
+
+    <!--Card-3-->
+    <div class="div1" style="background-color: white;" align="center">
+    
+        <p><img class="img" src="../Practice Folder/stephan.jpg" ></p>
+        <h2  style="color: #8E45AF;"">Stephan Marlo<br>&starf;&starf;&star;&star;&star;</h2>
+        <p  class="p2">Lorem ipsum dolor sit amet consectetur adipisiciding elit. Perferendis, quas optio? Faceare voluptatum, consequntur assum optio quo, labore necessitatibus obcacati aut enim, harum beatae.</p>
+        <p ><button type="button" class="button">Read more</button>
+        <button type="button" class="button1">Subscribe</button></p>
+    </div>
+</body>
+</html>
