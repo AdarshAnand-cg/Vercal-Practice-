@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Didi | A Special Celebration</title>
+  <meta name="description" content="A premium, cinematic birthday celebration website created with love for Didi by her brother.">
+  <meta property="og:title" content="Happy Birthday Didi | A Special Celebration">
+  <meta property="og:description" content="A premium, cinematic birthday celebration website created with love for Didi by her brother.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Continuous Background Visual Canvases & Particle Layers -->
+  <div id="sky-container" class="sky-container" aria-hidden="true">
+    <canvas id="fireworks-canvas" class="fullscreen-canvas"></canvas>
+    <canvas id="stars-canvas" class="fullscreen-canvas"></canvas>
+    <canvas id="confetti-canvas" class="fullscreen-canvas"></canvas>
+    <div id="ambient-orbs" class="ambient-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+    </div>
+    <div id="balloon-layer" class="balloon-layer"></div>
+    <div id="bubble-layer" class="bubble-layer"></div>
+    <div id="hearts-layer" class="hearts-layer"></div>
+    <div id="sparkle-layer" class="sparkle-layer"></div>
+  </div>
+
+  <!-- Ambient Audio Player Element & Floating Control -->
+  <audio id="birthday-audio" preload="auto">
+    <source src="birthday-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="nav-sparkle">✨</span>
+      <span class="nav-title">For Didi</span>
+    </div>
+    <div class="nav-actions">
+      <button id="btn-replay-intro" class="nav-btn" type="button" title="Replay Cinematic Intro">
+        <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span class="btn-text">Replay Intro</span>
+      </button>
+      <button id="btn-music-toggle" class="nav-btn music-btn" type="button" aria-label="Toggle Birthday Music">
+        <span id="music-icon-wrap" class="music-icon-wrap">
+          <svg class="svg-icon icon-music" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+        </span>
+        <span id="music-btn-label" class="btn-text">Play Music</span>
+        <span id="music-equalizer" class="equalizer-bars">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Cinematic Fullscreen Intro Overlay -->
+  <section id="intro-overlay" class="intro-overlay" role="dialog" aria-modal="true" aria-label="Cinematic Birthday Introduction">
+    <div class="intro-content">
+      <div id="intro-pill" class="intro-pill">✨ A SPECIAL CELEBRATION ✨</div>
+      <div id="intro-date" class="intro-date">20 OCTOBER 2000</div>
+      <h1 id="intro-title" class="intro-title">
+        <span class="intro-line">HAPPY</span>
+        <span class="intro-line gradient-word">BIRTHDAY</span>
+      </h1>
+      <div id="intro-subtitle" class="intro-subtitle">To My Amazing Didi ❤️</div>
+      <div id="intro-name" class="intro-name">Namrata Priya Thakur</div>
+      <button id="btn-enter-celebration" class="btn-primary intro-enter-btn" type="button">
+        <span>Enter Celebration</span>
+        <svg class="svg-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Website Container -->
+  <main id="app-container" class="app-container">
+
+    <!-- HERO SECTION -->
+    <section id="hero-section" class="hero-section app-section">
+      <div class="hero-header-wrap">
+        <div class="special-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">✨ A SPECIAL DAY · 20 OCTOBER ✨</span>
+        </div>
+        <h1 id="hero-main-title" class="hero-main-title">
+          <span class="title-sub-prefix">Happy Birthday</span>
+          <span id="sister-name-display" class="title-name-gradient">Didi</span>
+        </h1>
+        <p class="hero-subheading">
+          To my most precious guide, protector, confidante, and wonderful older sister. Today the stars shine in honor of you!
+        </p>
+      </div>
+
+      <!-- 3D Glassmorphism Birthday Card -->
+      <div id="card-perspective-wrapper" class="card-perspective-wrapper">
+        <article id="main-birthday-card" class="glass-card main-birthday-card">
+          <div class="card-glare" id="card-glare"></div>
+          <div class="card-border-glow"></div>
+          
+          <div class="card-top-row">
+            <span class="card-tag">👑 Queen of the Day</span>
+            <span class="card-date-badge">🎂 Born 20 Oct 2000</span>
+          </div>
+
+          <!-- Birthday Cake Component (Pure CSS & HTML) -->
+          <div class="cake-display-area">
+            <div id="interactive-cake" class="cake-box" role="button" tabindex="0" aria-label="Interactive Birthday Cake. Click to blow out or light candles.">
+              <div class="cake-candle" id="cake-candle">
+                <div class="candle-flame" id="candle-flame"></div>
+                <div class="candle-smoke" id="candle-smoke"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-body"></div>
+              </div>
+              <div class="cake-tier cake-tier-top">
+                <div class="icing-dripping"></div>
+                <div class="cake-berries">
+                  <span class="berry b1"></span>
+                  <span class="berry b2"></span>
+                  <span class="berry b3"></span>
+                  <span class="berry b4"></span>
+                </div>
+              </div>
+              <div class="cake-tier cake-tier-middle">
+                <div class="tier-frosting-strip"></div>
+                <div class="tier-stars-decor">✨ ★ ✨</div>
+              </div>
+              <div class="cake-tier cake-tier-bottom">
+                <div class="cake-crests"></div>
+                <div class="cake-pearls"></div>
+              </div>
+              <div class="cake-stand"></div>
+            </div>
+            
+            <div class="cake-action-bar">
+              <button id="btn-blow-candle" class="btn-secondary cake-blow-btn" type="button">
+                <span id="blow-btn-icon">🕯️</span>
+                <span id="blow-btn-text">Make a Wish & Blow Candle</span>
+              </button>
+              <div id="cake-status-msg" class="cake-status-msg" aria-live="polite">Click the cake or button to blow the candle!</div>
+            </div>
+          </div>
+
+          <!-- Age and Milestone Dynamic Stat Counters -->
+          <div class="milestones-grid">
+            <div class="milestone-box">
+              <span class="milestone-icon">✨</span>
+              <span id="stat-age-years" class="milestone-number">26</span>
+              <span class="milestone-label">Glorious Years</span>
+            </div>
+            <div class="milestone-box">
+              <span class="milestone-icon">☀️</span>
+              <span id="stat-days-lived" class="milestone-number">9,495+</span>
+              <span class="milestone-label">Days of Sunshine</span>
+            </div>
+            <div class="milestone-box">
+              <span class="milestone-icon">💖</span>
+              <span class="milestone-number">∞</span>
+              <span class="milestone-label">Brother's Love</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY / SHOWCASE SECTION -->
+    <section id="photo-section" class="photo-section app-section reveal-on-scroll">
+      <div class="section-title-wrap">
+        <span class="section-badge">📸 Royal Spotlight</span>
+        <h2 class="section-heading">Picture Perfect Memories</h2>
+        <p class="section-lead">The smile that lights up every room and brightens our family every single day.</p>
+      </div>
+
+      <div class="photo-card-container">
+        <div class="photo-frame-glow">
+          <div class="photo-frame-inner">
+            <div class="photo-badge">Didi’s Aura ✨</div>
+            <div id="photo-display-box" class="photo-display-box">
+              <!-- Default decorative visual placeholder; easily accepts sister-photo.jpg -->
+              <div id="photo-placeholder" class="photo-placeholder">
+                <div class="placeholder-art">
+                  <svg viewBox="0 0 100 100" class="portrait-svg" width="120" height="120">
+                    <circle cx="50" cy="50" r="46" fill="url(#photo-grad)" stroke="#f472b6" stroke-width="2"></circle>
+                    <defs>
+                      <linearGradient id="photo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#4c1d95"></stop>
+                        <stop offset="50%" stop-color="#831843"></stop>
+                        <stop offset="100%" stop-color="#fb7185"></stop>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="38" r="16" fill="#fce7f3"></circle>
+                    <path d="M26 78 C26 58, 74 58, 74 78 Z" fill="#f43f5e"></path>
+                    <circle cx="50" cy="22" r="5" fill="#fbbf24"></circle>
+                    <path d="M42 22 L50 14 L58 22 Z" fill="#f59e0b"></path>
+                  </svg>
+                </div>
+                <div class="placeholder-caption">
+                  <span id="photo-caption-name" class="placeholder-name">Namrata Priya Thakur (Didi)</span>
+                  <span class="placeholder-role">The Best Sister In The Universe</span>
+                </div>
+              </div>
+              <img id="sister-custom-img" class="sister-custom-img hidden" alt="Didi">
+            </div>
+
+            <!-- Client-side photo upload / preview feature -->
+            <div class="photo-customizer-row">
+              <label for="photo-file-input" class="btn-secondary photo-upload-btn">
+                <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span>Upload Her Photo</span>
+              </label>
+              <input type="file" id="photo-file-input" accept="image/*" class="sr-only">
+              <button id="btn-toggle-frame-filter" class="btn-secondary" type="button">✨ Toggle Glow Effect</button>
+            </div>
+            <p class="photo-hint">Place <code>sister-photo.jpg</code> in the folder or upload directly anytime!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEARTFELT BROTHER'S MESSAGE WITH INTERACTIVE MEMORY TABS -->
+    <section id="message-section" class="message-section app-section reveal-on-scroll">
+      <div class="section-title-wrap">
+        <span class="section-badge">💌 Straight From The Heart</span>
+        <h2 class="section-heading">Letters to My Dearest Didi</h2>
+        <p class="section-lead">Words can never fully describe how blessed I am to have you as my older sister.</p>
+      </div>
+
+      <div class="letter-glass-wrapper">
+        <!-- Interactive Letter Category Tabs -->
+        <div class="letter-nav-tabs" role="tablist" aria-label="Didi celebration chapters">
+          <button id="tab-btn-memories" class="tab-btn active" role="tab" aria-selected="true" aria-controls="letter-panel" type="button">
+            🌸 Childhood Memories
+          </button>
+          <button id="tab-btn-guidance" class="tab-btn" role="tab" aria-selected="false" aria-controls="letter-panel" type="button">
+            🌟 Guidance & Grace
+          </button>
+          <button id="tab-btn-wishes" class="tab-btn" role="tab" aria-selected="false" aria-controls="letter-panel" type="button">
+            🕊️ Prayers & Wishes
+          </button>
+          <button id="tab-btn-promise" class="tab-btn" role="tab" aria-selected="false" aria-controls="letter-panel" type="button">
+            🤝 Brother’s Promise
+          </button>
+        </div>
+
+        <article id="letter-panel" class="letter-card" role="tabpanel">
+          <div class="letter-stamp">
+            <span class="stamp-heart">❤️</span>
+            <span class="stamp-date">OCT 20</span>
+          </div>
+          <h3 id="letter-topic" class="letter-topic">You’ve Always Been More Than Just A Sister</h3>
+          <div id="letter-body" class="letter-body">
+            <p class="letter-paragraph">
+              Dearest Didi, from our very earliest childhood memories to the present day, you have been my greatest champion, my sweetest comfort, and the warmest light in my life. Whenever life felt daunting, knowing that my older sister stood beside me gave me an unshakeable sense of security.
+            </p>
+            <p class="letter-paragraph">
+              You shared your treats, forgave my mischief, guided my steps when I faltered, and taught me with gentle patience what it truly means to be kind, courageous, and dignified. Your heart is genuinely made of gold, and your laughter can heal any dull day.
+            </p>
+            <p class="letter-paragraph">
+              On this 20th of October, as you celebrate your birthday, I want to remind you that your dreams are destined to come true. May you continue to soar to incredible heights, wear that radiant smile forever, and know that your little brother will always admire, respect, and love you beyond measure.
+            </p>
+          </div>
+          <div class="letter-signature-wrap">
+            <span class="signature-note">With infinite love & blessings,</span>
+            <span class="signature-name">Your Younger Brother ❤️</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BIG SURPRISE SECTION -->
+    <section id="surprise-section" class="surprise-section app-section reveal-on-scroll">
+      <div class="section-title-wrap">
+        <span class="section-badge">🎁 Top Secret Surprise</span>
+        <h2 class="section-heading">A Special Gift For Didi</h2>
+        <p class="section-lead">Tap the enchanted box below to unleash the celebration spectacle!</p>
+      </div>
+
+      <div class="surprise-action-container">
+        <button id="btn-surprise" class="surprise-button" type="button">
+          <div class="btn-halo"></div>
+          <span class="btn-gift-icon">🎁</span>
+          <span class="btn-gift-text">CLICK FOR A SURPRISE!</span>
+          <span class="btn-sparkle-trail">✨ ✨ ✨</span>
+        </button>
+      </div>
+
+      <!-- Surprise Modal / Reveal Card -->
+      <div id="surprise-modal" class="surprise-modal hidden" role="dialog" aria-modal="true" aria-labelledby="surprise-secret-title">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-card">
+          <button id="btn-close-modal" class="modal-close-btn" type="button" aria-label="Close Surprise Message">✕</button>
+          <div class="modal-sparkles">✨ 🎉 💖 🌟 🎊</div>
+          <h3 id="surprise-secret-title" class="surprise-secret-title">To Didi, My Eternal Inspiration!</h3>
+          <div class="surprise-revealed-text">
+            <p class="highlight-quote">
+              "No matter how much we grow up, no matter how many miles lie between us, you will always be my beloved elder sister, my confidante, and my favorite blessing."
+            </p>
+            <p>
+              May this 26th year and every year that follows bring you boundless prosperity, deep peace, cherished travels, fulfilling achievements, and unconditional joy!
+            </p>
+          </div>
+
+          <!-- Sister's Wish Jar Interactive Feature -->
+          <div class="wish-jar-box">
+            <div class="wish-jar-header">
+              <span class="jar-icon">🏺</span>
+              <span class="jar-title">Didi's Magic Wish Jar</span>
+            </div>
+            <p id="wish-jar-output" class="wish-jar-output">
+              "You are the anchor of our family and the brightest smile in every room!"
+            </p>
+            <button id="btn-pull-wish" class="btn-secondary wish-pull-btn" type="button">
+              ✨ Draw Another Brotherly Wish
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SIBLING COMPLIMENTS / BONDING SECTION -->
+    <section id="bonding-section" class="bonding-section app-section reveal-on-scroll">
+      <div class="section-title-wrap">
+        <span class="section-badge">💎 Sister Superpowers</span>
+        <h2 class="section-heading">Why You Are The Best Sister</h2>
+        <p class="section-lead">Click any card to reveal one of the countless reasons we celebrate you today.</p>
+      </div>
+
+      <div class="reasons-grid">
+        <div class="reason-card" role="button" tabindex="0">
+          <div class="reason-icon">🛡️</div>
+          <h3 class="reason-title">Always My Protector</h3>
+          <p class="reason-desc">Standing up for me since childhood, shielding me from troubles, and having my back no matter the situation.</p>
+        </div>
+        <div class="reason-card" role="button" tabindex="0">
+          <div class="reason-icon">💡</div>
+          <h3 class="reason-title">Wise Counselor</h3>
+          <p class="reason-desc">Your advice is always grounded in love, clarity, and genuine care. You know me better than anyone.</p>
+        </div>
+        <div class="reason-card" role="button" tabindex="0">
+          <div class="reason-icon">✨</div>
+          <h3 class="reason-title">Effortless Elegance</h3>
+          <p class="reason-desc">The way you carry yourself with poise, kindness, warmth, and resilience inspires everyone around you.</p>
+        </div>
+        <div class="reason-card" role="button" tabindex="0">
+          <div class="reason-icon">🧁</div>
+          <h3 class="reason-title">Joy & Treats</h3>
+          <p class="reason-desc">From late-night snack shares to contagious belly laughs that made growing up the greatest adventure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CLOSING FOOTER -->
+    <footer id="footer-section" class="footer-section reveal-on-scroll">
+      <div class="footer-inner">
+        <div class="footer-glow-circle"></div>
+        <h2 class="footer-blessing-title">Happy Birthday, Didi ❤️</h2>
+        <p class="footer-blessing-text">
+          May your life always be filled with boundless happiness, sparkling success, supreme love, radiant health, and unforgettable beautiful memories.
+        </p>
+        <div class="footer-signature">
+          <div class="sig-heart">💖</div>
+          <div id="footer-made-by" class="sig-text">Made with ❤️ by your brother</div>
+          <div class="sig-sub">Celebrated with pride on 20 October</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
